@@ -1,8 +1,8 @@
-
-import CacheConfiguration from "../CacheConfiguration";
-
-class BasicCacheConfiguration implements CacheConfiguration {
-
-}
-
-export default BasicCacheConfiguration;
+//
+// import CacheConfiguration from "../CacheConfiguration";
+//
+// class BasicCacheConfiguration implements CacheConfiguration {
+//
+// }
+//
+// export default BasicCacheConfiguration;

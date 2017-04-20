@@ -15,6 +15,25 @@ class MapCache<K, V> implements Cache<K, V> {
         return this.data.get(key);
     }
 
+
+
+    size
+    stats
+
+
+
+    evictAll() {
+        this.data.clear();
+    }
+
+    evict(key: K): boolean {
+        const hasValue = this.data.has(key);
+        this.data.delete(key);
+        return hasValue;
+    }
+
+
+
 }
 
 export default MapCache;

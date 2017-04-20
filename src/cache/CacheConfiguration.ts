@@ -1,6 +1,6 @@
-
-interface CacheConfiguration {
-
-}
-
-export default CacheConfiguration;
+//
+// interface CacheConfiguration {
+//
+// }
+//
+// export default CacheConfiguration;

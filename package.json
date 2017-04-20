@@ -32,5 +32,6 @@
     "npm-watch": "^0.1.8",
     "ts-mocha": "^1.0.3",
     "typescript": "^2.2.2"
-  }
+  },
+  "dependencies": {}
 }
