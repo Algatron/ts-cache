@@ -1,12 +1,10 @@
-
 import Cache from "../Cache";
-import CacheConfiguration from "../CacheConfiguration";
 
-class MapCache<K, V> implements Cache {
+class MapCache<K, V> implements Cache<K, V> {
 
     private data: Map<K, V> = new Map<K, V>();
 
-    constructor(configuration: CacheConfiguration) {
+    constructor() {
     }
 
     put(key: K, value: V): void {

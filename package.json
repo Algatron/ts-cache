@@ -1,0 +1,36 @@
+{
+  "name": "ts-cache",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.ts",
+  "watch": {
+    "test": "**/*.spec.ts"
+  },
+  "scripts": {
+    "test": "ts-mocha -p ./ src/**/*.spec.ts",
+    "watch:test": "npm-watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Algatron/ts-cache.git"
+  },
+  "keywords": [],
+  "author": "Brian McCavour",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Algatron/ts-cache/issues"
+  },
+  "homepage": "https://github.com/Algatron/ts-cache#readme",
+  "devDependencies": {
+    "@types/chai": "^3.5.1",
+    "@types/core-js": "^0.9.41",
+    "@types/es6-shim": "^0.31.33",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^7.0.13",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "npm-watch": "^0.1.8",
+    "ts-mocha": "^1.0.3",
+    "typescript": "^2.2.2"
+  }
+}
