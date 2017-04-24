@@ -7,7 +7,7 @@
     "test": "**/*.spec.ts"
   },
   "scripts": {
-    "test": "ts-mocha -p ./ src/**/*.spec.ts",
+    "test": "ts-mocha -p ./ src/secache/**/*.spec.ts",
     "watch:test": "npm-watch"
   },
   "repository": {
