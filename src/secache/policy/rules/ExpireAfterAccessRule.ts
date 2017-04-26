@@ -1,6 +1,6 @@
-import AbstractSECacheDelegate from "../AbstractSECacheDelegate";
-import ISECache from "../ISECache";
-class ExpireAfterAccessPolicy<K, V> extends AbstractSECacheDelegate<K, V> {
+import ISECache from "../../ISECache";
+import AbstractSECachePolicyRule from "./AbstractSECachePolicyRule";
+class ExpireAfterAccessPolicy<K, V> extends AbstractSECachePolicyRule<K, V> {
 
     private expiryMap = new Map<K, number>();
     private expireMillis: number;
