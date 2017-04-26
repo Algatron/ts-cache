@@ -1,6 +1,6 @@
-import ISECache from "./ISECache";
 
-abstract class AbstractSECacheDelegate<K, V> implements ISECache<K, V> {
+import ISECache from "../cache/ISECache";
+abstract class AbstractCacheProxy<K, V> implements ISECache<K, V> {
 
     private cache: ISECache<K, V>;
 
@@ -8,12 +8,16 @@ abstract class AbstractSECacheDelegate<K, V> implements ISECache<K, V> {
         this.cache = cache;
     }
 
-    put(key: K, value: V): void {
-        this.getCache().put(key, value);
+    protected getCache(): ISECache<K, V> {
+        return this.cache;
     }
 
     get(key: K): V {
         return this.getCache().get(key);
+    }
+
+    put(key: K, value: V): void {
+        return this.getCache().put(key, value);
     }
 
     remove(key: K): boolean {
@@ -21,17 +25,12 @@ abstract class AbstractSECacheDelegate<K, V> implements ISECache<K, V> {
     }
 
     clear(): void {
-        this.getCache().clear();
+        return this.getCache().clear();
     }
 
     getSize(): number {
         return this.getCache().getSize();
     }
-
-    getCache(): ISECache<K, V> {
-        return this.cache;
-    }
-
 }
 
-export default AbstractSECacheDelegate;
+export default AbstractCacheProxy;

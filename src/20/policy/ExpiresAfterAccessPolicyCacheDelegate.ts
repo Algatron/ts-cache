@@ -1,5 +1,6 @@
-import AbstractSECacheDelegate from "../../AbstractSECacheDelegate";
-class ExpireAfterAccessPolicy<K, V> extends AbstractSECacheDelegate<K, V> {
+import ISECache from "../cache/ISECache";
+import AbstractCacheProxy from "../proxy/AbstractCacheProxy";
+class ExpiresAfterAccessPolicyCacheDelegate<K, V> extends AbstractCacheProxy<K, V> {
 
     private expiryMap = new Map<K, number>();
     private expireMillis: number;
@@ -8,9 +9,9 @@ class ExpireAfterAccessPolicy<K, V> extends AbstractSECacheDelegate<K, V> {
         this.expiryMap.set(key, Date.now() + this.expireMillis);
     }
 
-    constructor(milliseconds: number) {
-        super();
-        this.expireMillis = milliseconds;
+    constructor(cache: ISECache<K, V>, time: number) {
+        super(cache);
+        this.expireMillis = time;
     }
 
     put(key: K, value: V): void {
@@ -36,4 +37,7 @@ class ExpireAfterAccessPolicy<K, V> extends AbstractSECacheDelegate<K, V> {
         return super.clear();
     }
 
+
 }
+
+export default ExpiresAfterAccessPolicyCacheDelegate;
