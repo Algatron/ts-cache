@@ -1,9 +1,8 @@
 
+import CacheStats from "./CacheStats";
 interface ICacheStatsTracker {
 
-    recordHit(): void;
-
-    recordMiss(): void;
+    getCacheStats(): CacheStats;
 
 }
 

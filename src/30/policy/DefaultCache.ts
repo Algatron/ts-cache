@@ -1,75 +1,53 @@
-
-import ICachePolicy from "./ICachePolicy";
 import ICache from "../storage/ICache";
-import DefaultCacheConfig from "./config/DefaultCacheConfig";
+import ICachePolicy from "./ICachePolicy";
 
-
-interface ObjectKey {
-    v: any
-}
 
 class DefaultCache<K, V> implements ICachePolicy<K, V> {
 
-    private config: DefaultCacheConfig;
+    private _storage: ICache<K, V>;
+    // private _statsTracker: CacheStats;
 
-
-
-
-
-
-    private expiresMap: WeakMap<ObjectKey, number>;
-
-
-
-
-
-
-
-
-
-
-    constructor(config: DefaultCacheConfig) {
-        this.config = config;
+    protected getStorage(): ICache<K, V> {
+        return this._storage;
     }
 
-    setStorage(store: ICache<K, V>): void {
+    setStorage(storage: ICache<K, V>): void {
+        this._storage = storage;
     }
 
-    getStorage(): ICache<K, V> {
-        return null;
-    }
+    // protected getStatsTracker(): ICache<K, V> {
+    //     return this._storage;
+    // }
+    //
+    // setStatsTracker(statsTracker: CacheStats): void {
+    //     this._statsTracker = statsTracker;
+    // }
+    //
+    // getStats(): CacheStats {
+    //     return this._statsTracker;
+    // }
 
     put(key: K, value: V): void {
-        this.expiresMap.set({ v: key }, Date.now() + this.config.expireAfterWrite);
         return this.getStorage().put(key, value);
     }
 
     get(key: K): V {
-        if (this.expiresMap.has({ v: key })) {
-            if (Date.now() >= this.expiresMap.get({ v: key })) {
-
-            }
-        }
-
-
-        this.expiresMap.set({ v: key }, Date.now() + this.config.expireAfterAccess);
-        return this.getStorage().get(key);;
+        return this.getStorage().get(key);
     }
 
     remove(key: K): boolean {
-        return null;
+        return this.getStorage().remove(key);
     }
 
     clear(): void {
+        return this.getStorage().clear();
     }
 
     getSize(): number {
-        return null;
+        return this.getStorage().getSize();
     }
 
-    recordHit(): void {
-    }
 
-    recordMiss(): void {
-    }
 }
+
+export default DefaultCache;

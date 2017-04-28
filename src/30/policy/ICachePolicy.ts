@@ -1,11 +1,13 @@
-import ICacheStatsTracker from "../stats/ICacheStatsTracker";
+import CacheStats from "../stats/CacheStats";
 import ICache from "../storage/ICache";
 
-interface ICachePolicy<K, V> extends ICache<K, V>, ICacheStatsTracker {
+interface ICachePolicy<K, V> extends ICache<K, V> {
 
-    setStorage(store: ICache<K, V>): void;
+    setStorage(storage: ICache<K, V>): void;
 
-    getStorage(): ICache<K, V>;
+    // setStatsTracker(statsTracker: CacheStats): void;
+
+    // getStats(): CacheStats;
 
 }
 
