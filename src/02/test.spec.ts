@@ -1,4 +1,4 @@
-import "mocha";
+
 import SEMapCache from "./impl/SEMapCache";
 import DefaultSECacheStatsTracker from "./impl/DefaultSECacheStatsTracker";
 import { expect } from "chai";
